@@ -1,0 +1,17 @@
+ private void writeKeypair(String file_path) throws IOException {
+        File f = new File(file_path);
+        FileOutputStream fos = new FileOutputStream(f);
+        ObjectOutputStream obs = new ObjectOutputStream(fos);
+
+        obs.writeObject(keyPair);
+
+    }
+
+    private KeyPair readKeypair(String file_path) throws IOException, ClassNotFoundException {
+        File f = new File(file_path);
+        FileInputStream fos = new FileInputStream(f);
+        ObjectInputStream ios = new ObjectInputStream(fos);
+
+        return (KeyPair)ios.readObject();
+
+    }
